@@ -251,3 +251,13 @@ textarea { padding: 10px 12px; min-height: 80px; }
 input[type=range] { width: 100%; accent-color: var(--accent); min-height: 32px; }
 .btn.small.danger { background: transparent; color: var(--err); border-color: color-mix(in srgb, var(--err) 55%, transparent); }
 .modal-actions .btn.danger { background: transparent; color: var(--err); border-color: var(--err); }
+/* Lernmodus */
+.lesson-row { width: 100%; text-align: left; cursor: pointer; color: var(--text); font: inherit; }
+.lesson-row .grow { display: flex; flex-direction: column; gap: 4px; }
+.lesson-row.mine { border-color: color-mix(in srgb, var(--accent) 50%, var(--line)); }
+.lesson-mark { width: 6px; align-self: stretch; border-radius: 3px; background: var(--rc); flex: none; }
+.lesson-title { font-size: 1.6rem; margin-top: 6px; }
+.lesson-court { margin: 10px 0; }
+.lesson-text { font-size: 1.08rem; min-height: 4.4em; margin: 10px 2px; max-width: 70ch; }
+.done-card { text-align: center; padding: 32px 18px; }
+.done-card h1 { color: var(--accent); }
