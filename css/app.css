@@ -331,3 +331,15 @@ input[type=range] { width: 100%; accent-color: var(--accent); min-height: 32px; 
 .heat-c.bad { background: color-mix(in srgb, var(--err) 60%, var(--bg-2)); color: #fff; }
 .sel-small { width: auto; min-height: 38px; }
 .weak { align-items: center; }
+/* Taktiktafel */
+.color-row { display: flex; gap: 10px; margin: 10px 0; }
+.swatch { width: 40px; height: 40px; border-radius: 50%; border: 3px solid var(--bg); box-shadow: 0 0 0 2px var(--line); cursor: pointer; }
+.swatch.on { box-shadow: 0 0 0 3px var(--text); }
+.tactics-court { margin-top: 6px; }
+.court.drawing { cursor: crosshair; }
+.court.drawing .pl { cursor: crosshair; }
+.arrow.draw line, .arrow.draw path { stroke: var(--dc, var(--accent)); }
+.arrow.draw polygon { fill: var(--dc, var(--accent)); fill-opacity: 1; }
+.arrow.draw.head line { display: none; }
+.small { font-size: .85rem; }
+.btn-row > .btn { flex: 1 1 auto; white-space: nowrap; }

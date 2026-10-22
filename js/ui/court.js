@@ -208,13 +208,13 @@ export class Court {
 }
 
 /** Pfeil (für Lernmodus/Taktik): von a nach b */
-export function arrow(a, b, cls = 'arrow') {
+export function arrow(a, b, cls = 'arrow', inset = 0.7) {
   const dx = b.x - a.x, dy = b.y - a.y, len = Math.hypot(dx, dy) || 1;
   const ux = dx / len, uy = dy / len;
-  const tip = { x: b.x - ux * 0.7, y: b.y - uy * 0.7 };
+  const tip = { x: b.x - ux * inset, y: b.y - uy * inset };
   const base = { x: tip.x - ux * 0.45, y: tip.y - uy * 0.45 };
   const left = { x: base.x - uy * 0.28, y: base.y + ux * 0.28 }, right = { x: base.x + uy * 0.28, y: base.y - ux * 0.28 };
   return s('g', { class: cls },
-    s('line', { x1: a.x + ux * 0.7, y1: a.y + uy * 0.7, x2: base.x, y2: base.y }),
+    s('line', { x1: a.x + ux * inset, y1: a.y + uy * inset, x2: base.x, y2: base.y }),
     s('polygon', { points: `${tip.x},${tip.y} ${left.x},${left.y} ${right.x},${right.y}` }));
 }

@@ -111,6 +111,7 @@ function drawControls() {
   }
   opts.append(
     h('button', { class: 'btn small ghost', onclick: () => shareImage() }, icon('share', 18), t('export')),
+    h('a', { class: 'btn small ghost', href: '#/tactics' }, icon('pen', 18), t('tacticsLink')),
   );
   ui.controls.append(rotRow, opts);
 }

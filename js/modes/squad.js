@@ -72,7 +72,7 @@ function draw() {
   team.players.slice().sort((a, b) => order[a.role] - order[b.role] || (a.number || 0) - (b.number || 0)).forEach((p) => {
     list.append(h('button', { class: 'row-item player-row r-' + p.role, onclick: () => playerDialog(team, p) },
       h('span', { class: 'num-badge r-' + p.role }, p.number ?? '–'),
-      h('span', { class: 'grow' }, h('span', { class: 'title' }, p.name || '—'), h('span', { class: 'sub' }, ' ' + t('role.' + p.role) + (p.gender ? ` · ${t('sq.g.' + p.gender)}` : ''))),
+      h('span', { class: 'grow' }, h('span', { class: 'title' }, p.name || '—'), h('span', { class: 'sub' }, ' ' + t('role.' + p.role) + (p.gender ? ` – ${t('sq.g.' + p.gender)}` : ''))),
       p.id === mine ? h('span', { class: 'chip me-chip' }, t('sq.me')) : null));
   });
   root.append(list);

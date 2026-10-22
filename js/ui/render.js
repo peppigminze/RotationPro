@@ -18,7 +18,7 @@ export function formationPlayers(f, players, { mineId, errorZones = [], override
     const pos = overrides[e.id] || e;
     return {
       id: e.id, x: pos.x, y: pos.y, number: p.number, role: p.role === 'L' ? 'L' : p.role,
-      label: showRoleLabel ? t('roleShort.' + (e.role || p.role)) + ' · ' + playerShort(p) : playerShort(p),
+      label: showRoleLabel ? t('roleShort.' + (e.role || p.role)) + ' – ' + playerShort(p) : playerShort(p),
       libero: e.libero, mine: e.id === mineId, error: errorZones.includes(e.zone), setter: e.setter, server: e.server, ok: okIds.includes(e.id),
     };
   });

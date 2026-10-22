@@ -104,7 +104,7 @@ function play(lesson, startIdx = 0) {
     if (st.phases) {
       phaseBox.append(segmented(st.phases.map((p) => ({ value: p, label: t('phase.' + p) })), ph, (v) => { phase = v; draw(); }, 'scroll'));
     }
-    const head = `R${st.rot} · ${t('phase.' + ph)}`;
+    const head = `R${st.rot} – ${t('phase.' + ph)}`;
     text.textContent = stepText(st, ph, L);
     clear(extra);
     extra.append(h('div', { class: 'msg hint' }, head + (st.phases ? ' – ' + t('ln.phaseHint') : '')));
