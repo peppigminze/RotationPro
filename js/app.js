@@ -138,7 +138,8 @@ export const go = (path) => { if (location.hash === '#/' + path) route(); else l
 export const refresh = () => { renderChrome(); route(); };
 
 async function main() {
-  window.RP = { rolePicker, refresh, go };
+  window.RP = { rolePicker, refresh, go, installPrompt: null };
+  window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); window.RP.installPrompt = e; });
   await loadState();
   setLang(state.settings.lang);
   bindSettings(state.settings);

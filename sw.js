@@ -1,5 +1,5 @@
 // RotationPro Service Worker – App-Shell offline, Schriften zur Laufzeit gecacht
-const VERSION = '8428d91820';
+const VERSION = '1d010764af';
 const CACHE = 'rotationpro-' + VERSION;
 const FONT_CACHE = 'rotationpro-fonts';
 const ASSETS = [

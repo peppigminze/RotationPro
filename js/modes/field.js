@@ -3,7 +3,7 @@ import { t, addStrings } from '../i18n.js';
 import { h, clear, segmented, toast, haptic, toggle, select } from '../ui/dom.js';
 import { icon } from '../ui/icons.js';
 import { Court } from '../ui/court.js';
-import { state, persist, activeTeam, activeLineup, playersMap, currentLineup, setCurrentLineup, systemById, myPlayerId } from '../ui/store.js';
+import { state, persist, activeTeam, activeLineup, playersMap, currentLineup, setCurrentLineup, systemById, myPlayerId, effectiveRules } from '../ui/store.js';
 import { applyLibero, liberoViolations, mixedWarnings, ZONE_XY, rotate } from '../engine/core.js';
 import { computeFormation, overlapForPhase, PHASES } from '../engine/formation.js';
 import { rotationOf } from '../engine/systems.js';
@@ -130,7 +130,7 @@ function doRotate(dir) {
 }
 
 function libCfg(serving) {
-  return { liberos: ui.lu.liberos || [], mode: ui.lu.liberoMode || 'single', serving, rules: state.settings.rules };
+  return { liberos: ui.lu.liberos || [], mode: ui.lu.liberoMode || 'single', serving, rules: effectiveRules(sys()) };
 }
 
 function draw(animate = true) {
@@ -155,7 +155,7 @@ function draw(animate = true) {
       const p = players[id];
       return { id, x: ZONE_XY[i + 1].x, y: ZONE_XY[i + 1].y, number: p.number, role: p.role, label: playerShort(p), libero: p.role === 'L', mine: id === mine, selected: id === ui.selected, server: ui.serving && i === 0 };
     }).filter(Boolean);
-    const libErr = liberoViolations(court, players, { serving: ui.serving, rules: state.settings.rules });
+    const libErr = liberoViolations(court, players, { serving: ui.serving, rules: effectiveRules(sys()) });
     libErr.forEach((e) => { messages.push({ kind: 'err', text: t('lib.' + e.type) }); courtPlayers.forEach((cp) => { if (e.zones.includes(court.indexOf(cp.id) + 1)) cp.error = true; }); });
     lib.swaps.forEach((sw) => messages.push({ kind: 'info lib', text: t('lib.replaces', { name: playerName(players[sw.out]) }) + ` (${t('pos', { z: sw.zone })})` }));
     if (S.hobby?.mixed) mixedWarnings(court, players).forEach((w) => messages.push({ kind: 'warn', text: t('mixed.' + w.type, { ...w, a: w.zones?.[0], b: w.zones?.[1] }) }));
@@ -166,7 +166,7 @@ function draw(animate = true) {
   } else {
     ui.court.setMode('free');
     ui.court.highlightZones([], 'target');
-    const f = computeFormation({ sys: S, lineup: cur, players, liberos: ui.lu.liberos || [], liberoMode: ui.lu.liberoMode, phase: ui.phase, rules: state.settings.rules });
+    const f = computeFormation({ sys: S, lineup: cur, players, liberos: ui.lu.liberos || [], liberoMode: ui.lu.liberoMode, phase: ui.phase, rules: effectiveRules(sys()) });
     const entries = f.entries.map((e) => ({ ...e, ...(ui.overrides[e.id] || {}) }));
     const errs = state.settings.rules.overlap === false ? [] : overlapForPhase(entries, ui.phase);
     const errZones = [...new Set(errs.flatMap((e) => [e.a, e.b]))];

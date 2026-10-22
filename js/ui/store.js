@@ -110,3 +110,10 @@ export function importData(json) {
   for (const k of KEYS) if (d[k] !== undefined) state[k] = d[k];
   persistAll();
 }
+
+/** Effektive Regeln: Einstellungen + Hobby-Optionen des Systems ("vereinfachte Regeln" erlaubt Libero vorne/Aufschlag). */
+export function effectiveRules(sys) {
+  const r = { ...state.settings.rules };
+  if (sys?.hobby?.simplified) { r.liberoServe = true; r.liberoFront = true; }
+  return r;
+}

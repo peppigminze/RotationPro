@@ -221,3 +221,33 @@ textarea { padding: 10px 12px; min-height: 80px; }
 .link-row { text-decoration: none; color: var(--text); }
 .chev { font-size: 1.6rem; color: var(--muted); }
 .foot { margin-top: 20px; text-align: center; font-size: .8rem; }
+/* Formulare & Listen */
+.row-split { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+@media (max-width: 480px) { .grid3 { grid-template-columns: 1fr; } .row-split { grid-template-columns: 1fr; } }
+.stepper { display: flex; align-items: center; gap: 8px; }
+.stepper .btn { width: 44px; padding: 0; font-size: 1.3rem; }
+.stepper-val { min-width: 32px; text-align: center; font: 800 1.4rem var(--font-d); }
+.role-court { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 10px; border-radius: var(--radius); background: var(--floor); border-top: 5px solid #F4F7FB; }
+.role-cell { display: flex; flex-direction: column; gap: 4px; color: #fff; font-weight: 600; font-size: .82rem; }
+.role-cell select { min-height: 40px; padding: 0 6px; font-size: .88rem; }
+.sys-preview { margin: 4px 0 12px; max-width: 360px; }
+.toggles { display: flex; flex-direction: column; gap: 4px; }
+.check { display: flex; align-items: center; gap: 10px; min-height: 44px; cursor: pointer; font-weight: 500; }
+.check input { width: 22px; height: 22px; accent-color: var(--accent); }
+.plain { background: none; border: 0; text-align: left; cursor: pointer; padding: 6px 0; }
+.plain .title { display: block; }
+.me-chip { background: var(--accent); color: var(--accent-ink); border-color: transparent; height: 28px; }
+.on-chip { border-color: var(--ok); color: var(--ok); height: 28px; }
+.sys-card-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.sys-card-head h2 { font-size: 1.8rem; font-style: italic; }
+.seg.wrap { flex-wrap: wrap; }
+.seg.wrap .seg-btn { flex: 1 1 40%; }
+.num-badge.small { width: 30px; height: 30px; font-size: 1rem; }
+.lib-box { display: flex; flex-direction: column; }
+.row-item.on { border-color: var(--accent); }
+.player-row { width: 100%; text-align: left; cursor: pointer; color: var(--text); font: inherit; }
+.player-row .title { font-size: 1.02rem; }
+input[type=range] { width: 100%; accent-color: var(--accent); min-height: 32px; }
+.btn.small.danger { background: transparent; color: var(--err); border-color: color-mix(in srgb, var(--err) 55%, transparent); }
+.modal-actions .btn.danger { background: transparent; color: var(--err); border-color: var(--err); }
