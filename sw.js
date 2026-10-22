@@ -1,5 +1,5 @@
 // RotationPro Service Worker – App-Shell offline, Schriften zur Laufzeit gecacht
-const VERSION = '8d1a961171';
+const VERSION = 'e912f9ceb0';
 const CACHE = 'rotationpro-' + VERSION;
 const FONT_CACHE = 'rotationpro-fonts';
 const ASSETS = [
@@ -7,10 +7,13 @@ const ASSETS = [
   './manifest.json',
   './css/app.css',
   './js/app.js',
+  './js/engine/analysis.js',
   './js/engine/core.js',
   './js/engine/formation.js',
   './js/engine/lessons.js',
+  './js/engine/questions.js',
   './js/engine/rng.js',
+  './js/engine/srs.js',
   './js/engine/systems.js',
   './js/i18n.js',
   './js/modes/field.js',
@@ -26,6 +29,7 @@ const ASSETS = [
   './js/ui/court.js',
   './js/ui/dom.js',
   './js/ui/icons.js',
+  './js/ui/qvisual.js',
   './js/ui/render.js',
   './js/ui/share.js',
   './js/ui/store.js',

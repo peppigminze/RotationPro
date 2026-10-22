@@ -261,3 +261,19 @@ input[type=range] { width: 100%; accent-color: var(--accent); min-height: 32px; 
 .lesson-text { font-size: 1.08rem; min-height: 4.4em; margin: 10px 2px; max-width: 70ch; }
 .done-card { text-align: center; padding: 32px 18px; }
 .done-card h1 { color: var(--accent); }
+/* Quiz */
+.quiz-head { display: flex; gap: 8px; align-items: center; color: var(--muted); font-weight: 600; margin-bottom: 6px; }
+.rev-chip { height: 26px; border-color: var(--r-L); color: var(--r-L); }
+.q-prompt { font-family: var(--font); font-weight: 600; font-size: 1.15rem; line-height: 1.35; margin: 12px 0; }
+.q-court .court { max-height: 46dvh; }
+.q-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
+.q-opts > p { grid-column: 1 / -1; margin: 0; }
+.q-opt { min-height: 56px; text-align: center; white-space: normal; line-height: 1.2; }
+.q-opt.letter { font: 800 1.3rem var(--font-d); }
+.q-opt.right { background: var(--ok); color: #062615; border-color: transparent; opacity: 1; }
+.q-opt.wrong { background: var(--err); color: #fff; border-color: transparent; opacity: 1; }
+.q-opt[disabled] { opacity: .55; }
+.q-fb { margin-top: 12px; display: flex; flex-direction: column; gap: 10px; }
+.result-card { text-align: center; }
+.big-score { font: 800 4.5rem/1 var(--font-d); font-style: italic; color: var(--accent); margin: 8px 0; }
+.result-card .sys-roles { justify-content: center; }

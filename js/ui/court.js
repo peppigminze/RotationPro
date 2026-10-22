@@ -54,7 +54,7 @@ export class Court {
     this.markerLayer = s('g', { class: 'markers' });
     this.playerLayer = s('g', { class: 'players' });
     this.topLayer = s('g', { class: 'top' });
-    this.el.append(g, this.zoneLayer, this.overlay, this.markerLayer, this.playerLayer, this.topLayer);
+    this.el.append(g, this.zoneLayer, this.overlay, this.playerLayer, this.markerLayer, this.topLayer);
   }
 
   toCourt(cx, cy) {
